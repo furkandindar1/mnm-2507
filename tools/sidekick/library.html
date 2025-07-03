@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="robots" content="noindex">
+  <title>Sidekick Library</title>
+  <style>
+    html,body{margin:0;height:100%;font-family:sans-serif;background:#ededed}
+    helix-sidekick{display:none}
+  </style>
+</head>
+<body>
+  <script type="module" src="/tools/sidekick/dist/index.js"></script>
+  <script>
+    const lib = document.createElement('sidekick-library');
+    lib.config = { base: '/tools/sidekick/library.json' };
+    document.body.prepend(lib);
+  </script>
+</body>
+</html>
