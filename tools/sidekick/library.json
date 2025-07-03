@@ -1,5 +1,5 @@
 {
-  "helix-blocks": [
+  "blocks": [
     { "name": "Hero",    "path": "/tools/sidekick/blocks/hero" },
     { "name": "Columns", "path": "/tools/sidekick/blocks/columns" }
   ]
