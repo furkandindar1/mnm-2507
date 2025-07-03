@@ -12,12 +12,19 @@
 
 :root {
   /* colors */
-  --background-color: white;
+  --background-color: #ffffff;
   --light-color: #f8f8f8;
   --dark-color: #505050;
   --text-color: #131313;
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
+
+  /* glass-button colors */
+  --btn-color: #ff7a00;
+  --btn-bg: rgba(255, 255, 255, 0.12);
+  --btn-bg-hover: rgba(255, 122, 0, 0.24);
+  --btn-bg-disabled: rgba(255, 255, 255, 0.06);
+  --btn-border: rgba(255, 255, 255, 0.35);
 
   /* fonts */
   --body-font-family: roboto, roboto-fallback, sans-serif;
@@ -165,22 +172,17 @@ a:hover {
   text-decoration: underline;
 }
 
-/* orange-white glassmorphism – clean & modern */
-:root {
-  --btn-color: #ff7a00;
-  --btn-bg: rgba(255, 255, 255, 0.12);
-  --btn-bg-hover: rgba(255, 122, 0, 0.24);
-  --btn-bg-disabled: rgba(255, 255, 255, 0.06);
-  --btn-border: rgba(255, 255, 255, 0.35);
-}
+/* -----------------------------------------------------------------
+   Orange / white glassmorphism buttons – clean & modern
+----------------------------------------------------------------- */
 
-/* base */
 :where(a.button, button) {
   all: unset;
   box-sizing: border-box;
   display: inline-block;
-  padding: 0.6em 1.6em;
   max-width: 100%;
+  padding: 0.6em 1.6em;
+
   border: 1px solid var(--btn-border);
   border-radius: 9999px;
 
@@ -188,8 +190,8 @@ a:hover {
   font-weight: 500;
   line-height: 1.25;
   text-align: center;
-  color: var(--btn-color);
 
+  color: var(--btn-color);
   background: var(--btn-bg);
   backdrop-filter: blur(14px) saturate(180%);
   cursor: pointer;
@@ -197,17 +199,17 @@ a:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+
   transition: background 0.25s, color 0.25s, border 0.25s;
 }
 
-/* hover / focus */
-:where(a.button:hover, a.button:focus, button:hover, button:focus) {
+:where(a.button:hover, a.button:focus-visible,
+       button:hover:not(:disabled), button:focus-visible:not(:disabled)) {
   background: var(--btn-bg-hover);
-  color: #fff;
+  color: #ffffff;
   border-color: rgba(255, 255, 255, 0.55);
 }
 
-/* disabled */
 button:disabled {
   background: var(--btn-bg-disabled);
   color: rgba(255, 255, 255, 0.45);
@@ -221,14 +223,14 @@ button:disabled {
   border: 1px solid var(--btn-color);
 }
 
-:where(a.button.secondary:hover,
-       a.button.secondary:focus,
-       button.secondary:hover,
-       button.secondary:focus) {
+:where(a.button.secondary:hover, a.button.secondary:focus-visible,
+       button.secondary:hover:not(:disabled), button.secondary:focus-visible:not(:disabled)) {
   background: var(--btn-bg-hover);
-  color: #fff;
+  color: #ffffff;
   border-color: rgba(255, 255, 255, 0.55);
 }
+
+/* ----------------------------------------------------------------- */
 
 main img {
   max-width: 100%;
