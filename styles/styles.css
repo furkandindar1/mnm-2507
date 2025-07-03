@@ -4,36 +4,42 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  */
 
+/* ================================================================
+   ROOT DEĞİŞKENLER
+   ================================================================ */
 :root {
-  /* palette */
+  /* renk paleti */
   --background-color: #ffffff;
   --light-color: #fafafa;
   --dark-color: #404040;
   --text-color: #131313;
 
-  /* accent (orange-white glass) */
-  --accent-500: #ff7a00;
-  --accent-600: #db6500;
+  /* accent (turuncu-cam) */
+  --accent-500: #ff7a00;   /* ana turuncu */
+  --accent-600: #db6500;   /* hover turuncu */
 
+  /* linkler */
+  --link-color: var(--accent-500);
+  --link-hover-color: var(--accent-600);
+
+  /* cam buton */
   --btn-color: var(--accent-500);
   --btn-bg: rgba(255, 255, 255, 0.15);
   --btn-bg-hover: rgba(255, 122, 0, 0.35);
   --btn-bg-disabled: rgba(255, 255, 255, 0.08);
   --btn-border: rgba(255, 255, 255, 0.28);
 
-  --link-color: var(--accent-500);
-  --link-hover-color: var(--accent-600);
-
-  /* fonts */
+  /* fontlar */
   --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --heading-font-family: roboto-condensed, roboto-condensed-fallback,
+    sans-serif;
 
-  /* body sizes */
+  /* metin boyutları */
   --body-font-size-m: 22px;
   --body-font-size-s: 19px;
   --body-font-size-xs: 17px;
 
-  /* heading sizes */
+  /* başlık boyutları */
   --heading-font-size-xxl: 55px;
   --heading-font-size-xl: 44px;
   --heading-font-size-l: 34px;
@@ -45,20 +51,24 @@
   --nav-height: 64px;
 }
 
-/* fallback fonts */
+/* ================================================================
+   FALLBACK FONTLAR
+   ================================================================ */
 @font-face {
   font-family: roboto-condensed-fallback;
   size-adjust: 88.82%;
-  src: local('Arial');
+  src: local("Arial");
 }
 
 @font-face {
   font-family: roboto-fallback;
   size-adjust: 99.529%;
-  src: local('Arial');
+  src: local("Arial");
 }
 
-/* responsive sizing */
+/* ================================================================
+   RESPONSIVE TİPOGRAFİ
+   ================================================================ */
 @media (width >= 900px) {
   :root {
     --body-font-size-m: 18px;
@@ -74,10 +84,14 @@
   }
 }
 
-/* base */
+/* ================================================================
+   GLOBAL RESET & TEMEL YAPI
+   ================================================================ */
 *,
 *::before,
-*::after { box-sizing: border-box; }
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   display: none;
@@ -89,35 +103,72 @@ body {
   line-height: 1.6;
 }
 
-body.appear { display: block; }
+body.appear {
+  display: block;
+}
 
-header { height: var(--nav-height); }
+header {
+  height: var(--nav-height);
+}
 
 header .header,
-footer .footer { visibility: hidden; }
+footer .footer {
+  visibility: hidden;
+}
 
 header .header[data-block-status="loaded"],
-footer .footer[data-block-status="loaded"] { visibility: visible; }
+footer .footer[data-block-status="loaded"] {
+  visibility: visible;
+}
 
-/* typography */
-h1,h2,h3,h4,h5,h6 {
-  margin: .8em 0 .25em;
+/* ================================================================
+   TİPOGRAFİ
+   ================================================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0.8em 0 0.25em;
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+}
+h2 {
+  font-size: var(--heading-font-size-xl);
+}
+h3 {
+  font-size: var(--heading-font-size-l);
+}
+h4 {
+  font-size: var(--heading-font-size-m);
+}
+h5 {
+  font-size: var(--heading-font-size-s);
+}
+h6 {
+  font-size: var(--heading-font-size-xs);
+}
 
-p,dl,ol,ul,pre,blockquote { margin: .8em 0 .25em; }
+p,
+dl,
+ol,
+ul,
+pre,
+blockquote {
+  margin: 0.8em 0 0.25em;
+}
 
-code,pre { font-size: var(--body-font-size-s); }
+code,
+pre {
+  font-size: var(--body-font-size-s);
+}
 
 pre {
   padding: 16px;
@@ -127,91 +178,145 @@ pre {
   white-space: pre;
 }
 
-main > div { margin: 40px 16px; }
+main > div {
+  margin: 40px 16px;
+}
 
-input,textarea,select,button { font: inherit; }
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
 
-/* links */
+/* ================================================================
+   LİNKLER
+   ================================================================ */
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
   overflow-wrap: break-word;
 }
-a:hover { color: var(--link-hover-color); text-decoration: underline; }
 
-/* buttons – orange/white glassmorphism */
-:where(a.button, button) {
-  all: unset;
+a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* ================================================================
+   BUTONLAR — ORİJİNAL SELECTORLAR KORUNDU
+   ================================================================ */
+a.button:any-link,
+button {
+  /* ---- boyut & kutu ---- */
+  box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
-  padding: .6em 1.6em;
+  margin: 12px 0;
+  padding: 0.6em 1.6em;
+
+  /* ---- kenar & köşe ---- */
   border: 1px solid var(--btn-border);
   border-radius: 9999px;
 
+  /* ---- tipografi ---- */
   font-family: var(--body-font-family);
   font-weight: 500;
   line-height: 1.25;
   text-align: center;
+  text-decoration: none;
 
+  /* ---- renk & arka plan ---- */
   color: var(--btn-color);
-  background: var(--btn-bg);
+  background-color: var(--btn-bg);
   backdrop-filter: blur(14px) saturate(180%);
   -webkit-backdrop-filter: blur(14px) saturate(180%);
-  cursor: pointer;
 
+  /* ---- davranış ---- */
+  cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  transition: background .25s,color .25s,border .25s;
+  /* ---- geçiş ---- */
+  transition: background 0.25s, color 0.25s, border 0.25s;
 }
 
-:where(a.button:hover,a.button:focus-visible,
-       button:hover:not(:disabled),button:focus-visible:not(:disabled)) {
-  background: var(--btn-bg-hover);
+a.button:hover,
+a.button:focus,
+button:hover,
+button:focus {
+  background-color: var(--btn-bg-hover);
   color: #ffffff;
-  border-color: rgba(255,255,255,.55);
+  border-color: rgba(255, 255, 255, 0.55);
 }
 
-button:disabled {
-  background: var(--btn-bg-disabled);
-  color: rgba(255,255,255,.45);
+button:disabled,
+button:disabled:hover {
+  background-color: var(--btn-bg-disabled);
+  color: rgba(255, 255, 255, 0.45);
   cursor: default;
 }
 
-/* secondary */
-:where(a.button.secondary,button.secondary) {
-  background: transparent;
-  color: var(--btn-color);
+a.button.secondary,
+button.secondary {
+  background-color: transparent;
   border: 1px solid var(--btn-color);
+  color: var(--btn-color);
 }
 
-:where(a.button.secondary:hover,a.button.secondary:focus-visible,
-       button.secondary:hover:not(:disabled),button.secondary:focus-visible:not(:disabled)) {
-  background: var(--btn-bg-hover);
+a.button.secondary:hover,
+a.button.secondary:focus,
+button.secondary:hover,
+button.secondary:focus {
+  background-color: var(--btn-bg-hover);
   color: #ffffff;
-  border-color: rgba(255,255,255,.55);
+  border-color: rgba(255, 255, 255, 0.55);
 }
 
-/* images & icons */
-main img { max-width: 100%; height: auto; }
-.icon { display:inline-block; height:24px; width:24px; }
-.icon img { height:100%; width:100%; }
+/* ================================================================
+   GÖRSELLER
+   ================================================================ */
+main img {
+  max-width: 100%;
+  height: auto;
+}
 
-/* sections */
-main > .section { margin: 40px 0; }
+.icon {
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+}
+
+.icon img {
+  height: 100%;
+  width: 100%;
+}
+
+/* ================================================================
+   SEKSİYON YAPISI
+   ================================================================ */
+main > .section {
+  margin: 40px 0;
+}
+
 main > .section > div {
   max-width: 1200px;
   margin: auto;
   padding: 0 24px;
 }
-main > .section:first-of-type { margin-top: 0; }
 
-@media (width >= 900px) {
-  main > .section > div { padding: 0 32px; }
+main > .section:first-of-type {
+  margin-top: 0;
 }
 
-/* section variants */
+@media (width >= 900px) {
+  main > .section > div {
+    padding: 0 32px;
+  }
+}
+
+/* varyantlar */
 main .section.light,
 main .section.highlight {
   background: var(--light-color);
