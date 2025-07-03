@@ -165,78 +165,69 @@ a:hover {
   text-decoration: underline;
 }
 
-/* buttons – orange/white glassmorphism */
-a.button:any-link,
-button {
-  --glass-orange: #ff7a00;
-  --glass-bg: rgba(255, 255, 255, 0.18);
-  --glass-border: rgba(255, 255, 255, 0.4);
-  --glass-shadow: 0 6px 24px rgba(255, 122, 0, 0.25);
+/* orange-white glassmorphism – clean & modern */
+:root {
+  --btn-color: #ff7a00;
+  --btn-bg: rgba(255, 255, 255, 0.12);
+  --btn-bg-hover: rgba(255, 122, 0, 0.24);
+  --btn-bg-disabled: rgba(255, 255, 255, 0.06);
+  --btn-border: rgba(255, 255, 255, 0.35);
+}
 
+/* base */
+:where(a.button, button) {
+  all: unset;
   box-sizing: border-box;
   display: inline-block;
+  padding: 0.6em 1.6em;
   max-width: 100%;
-  margin: 12px 0;
-  padding: 0.6em 1.4em;
-  border: 2px solid var(--glass-border);
-  border-radius: 2.4em;
+  border: 1px solid var(--btn-border);
+  border-radius: 9999px;
 
   font-family: var(--body-font-family);
   font-weight: 500;
   line-height: 1.25;
   text-align: center;
-  text-decoration: none;
-  color: var(--glass-orange);
+  color: var(--btn-color);
 
-  background: var(--glass-bg);
+  background: var(--btn-bg);
   backdrop-filter: blur(14px) saturate(180%);
-  -webkit-backdrop-filter: blur(14px) saturate(180%);
-  box-shadow: var(--glass-shadow);
-
   cursor: pointer;
+
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-
-  transition: background 0.25s ease, color 0.25s ease, box-shadow 0.25s ease,
-              border 0.25s ease;
+  transition: background 0.25s, color 0.25s, border 0.25s;
 }
 
-a.button:hover,
-a.button:focus,
-button:hover,
-button:focus {
-  background: rgba(255, 122, 0, 0.25);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 8px 30px rgba(255, 122, 0, 0.35);
+/* hover / focus */
+:where(a.button:hover, a.button:focus, button:hover, button:focus) {
+  background: var(--btn-bg-hover);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
 }
 
-button:disabled,
-button:disabled:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.4);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: none;
+/* disabled */
+button:disabled {
+  background: var(--btn-bg-disabled);
+  color: rgba(255, 255, 255, 0.45);
   cursor: default;
 }
 
-/* secondary button – outlined */
-a.button.secondary,
-button.secondary {
+/* secondary (outline) */
+:where(a.button.secondary, button.secondary) {
   background: transparent;
-  color: var(--glass-orange);
-  border: 2px solid var(--glass-orange);
-  box-shadow: none;
+  color: var(--btn-color);
+  border: 1px solid var(--btn-color);
 }
 
-a.button.secondary:hover,
-a.button.secondary:focus,
-button.secondary:hover,
-button.secondary:focus {
-  background: rgba(255, 122, 0, 0.15);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.6);
+:where(a.button.secondary:hover,
+       a.button.secondary:focus,
+       button.secondary:hover,
+       button.secondary:focus) {
+  background: var(--btn-bg-hover);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
 }
 
 main img {
