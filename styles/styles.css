@@ -4,9 +4,9 @@
  * http://www.apache.org/licenses/LICENSE-2.0
  */
 
-/* ================================================================
+/* =============================================================
    ROOT DEĞİŞKENLER
-   ================================================================ */
+   ============================================================= */
 :root {
   /* renk paleti */
   --background-color: #ffffff;
@@ -14,27 +14,16 @@
   --dark-color: #404040;
   --text-color: #131313;
 
-  /* accent (turuncu-cam) */
-  --accent-500: #ff7a00;   /* ana turuncu */
-  --accent-600: #db6500;   /* hover turuncu */
-
-  /* linkler */
-  --link-color: var(--accent-500);
-  --link-hover-color: var(--accent-600);
-
-  /* cam buton */
-  --btn-color: var(--accent-500);
-  --btn-bg: rgba(255, 255, 255, 0.15);
-  --btn-bg-hover: rgba(255, 122, 0, 0.35);
-  --btn-bg-disabled: rgba(255, 255, 255, 0.08);
-  --btn-border: rgba(255, 255, 255, 0.28);
+  /* vurgu (turuncu) */
+  --link-color: #ff7a00;  /* ana turuncu */
+  --link-hover-color: #db6500; /* hover turuncu */
 
   /* fontlar */
   --body-font-family: roboto, roboto-fallback, sans-serif;
   --heading-font-family: roboto-condensed, roboto-condensed-fallback,
     sans-serif;
 
-  /* metin boyutları */
+  /* gövde boyutları */
   --body-font-size-m: 22px;
   --body-font-size-s: 19px;
   --body-font-size-xs: 17px;
@@ -47,28 +36,28 @@
   --heading-font-size-s: 24px;
   --heading-font-size-xs: 22px;
 
-  /* nav */
+  /* nav yüksekliği */
   --nav-height: 64px;
 }
 
-/* ================================================================
+/* =============================================================
    FALLBACK FONTLAR
-   ================================================================ */
+   ============================================================= */
 @font-face {
   font-family: roboto-condensed-fallback;
   size-adjust: 88.82%;
-  src: local("Arial");
+  src: local('Arial');
 }
 
 @font-face {
   font-family: roboto-fallback;
   size-adjust: 99.529%;
-  src: local("Arial");
+  src: local('Arial');
 }
 
-/* ================================================================
+/* =============================================================
    RESPONSIVE TİPOGRAFİ
-   ================================================================ */
+   ============================================================= */
 @media (width >= 900px) {
   :root {
     --body-font-size-m: 18px;
@@ -84,9 +73,9 @@
   }
 }
 
-/* ================================================================
-   GLOBAL RESET & TEMEL YAPI
-   ================================================================ */
+/* =============================================================
+   TEMEL YAPI
+   ============================================================= */
 *,
 *::before,
 *::after {
@@ -96,7 +85,7 @@
 body {
   display: none;
   margin: 0;
-  background: var(--background-color);
+  background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
@@ -121,9 +110,9 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
-/* ================================================================
+/* =============================================================
    TİPOGRAFİ
-   ================================================================ */
+   ============================================================= */
 h1,
 h2,
 h3,
@@ -137,24 +126,12 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 {
-  font-size: var(--heading-font-size-xxl);
-}
-h2 {
-  font-size: var(--heading-font-size-xl);
-}
-h3 {
-  font-size: var(--heading-font-size-l);
-}
-h4 {
-  font-size: var(--heading-font-size-m);
-}
-h5 {
-  font-size: var(--heading-font-size-s);
-}
-h6 {
-  font-size: var(--heading-font-size-xs);
-}
+h1 { font-size: var(--heading-font-size-xxl); }
+h2 { font-size: var(--heading-font-size-xl); }
+h3 { font-size: var(--heading-font-size-l); }
+h4 { font-size: var(--heading-font-size-m); }
+h5 { font-size: var(--heading-font-size-s); }
+h6 { font-size: var(--heading-font-size-xs); }
 
 p,
 dl,
@@ -173,7 +150,7 @@ pre {
 pre {
   padding: 16px;
   border-radius: 8px;
-  background: var(--light-color);
+  background-color: var(--light-color);
   overflow-x: auto;
   white-space: pre;
 }
@@ -189,9 +166,9 @@ button {
   font: inherit;
 }
 
-/* ================================================================
+/* =============================================================
    LİNKLER
-   ================================================================ */
+   ============================================================= */
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
@@ -203,80 +180,71 @@ a:hover {
   text-decoration: underline;
 }
 
-/* ================================================================
-   BUTONLAR — ORİJİNAL SELECTORLAR KORUNDU
-   ================================================================ */
+/* =============================================================
+   BUTONLAR (class adları değişmedi)
+   ============================================================= */
 a.button:any-link,
 button {
-  /* ---- boyut & kutu ---- */
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
   margin: 12px 0;
-  padding: 0.6em 1.6em;
+  padding: 0.5em 1.2em;
 
-  /* ---- kenar & köşe ---- */
-  border: 1px solid var(--btn-border);
-  border-radius: 9999px;
+  border: 2px solid transparent;
+  border-radius: 2.4em;
 
-  /* ---- tipografi ---- */
   font-family: var(--body-font-family);
+  font-style: normal;
   font-weight: 500;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
 
-  /* ---- renk & arka plan ---- */
-  color: var(--btn-color);
-  background-color: var(--btn-bg);
-  backdrop-filter: blur(14px) saturate(180%);
-  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  background-color: var(--link-color);
+  color: var(--background-color);
 
-  /* ---- davranış ---- */
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  /* ---- geçiş ---- */
-  transition: background 0.25s, color 0.25s, border 0.25s;
+  transition: background-color 0.25s, color 0.25s;
 }
 
 a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--btn-bg-hover);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.55);
+  background-color: var(--link-hover-color);
+  color: var(--background-color);
 }
 
 button:disabled,
 button:disabled:hover {
-  background-color: var(--btn-bg-disabled);
-  color: rgba(255, 255, 255, 0.45);
+  background-color: var(--light-color);
+  color: var(--dark-color);
   cursor: default;
 }
 
 a.button.secondary,
 button.secondary {
   background-color: transparent;
-  border: 1px solid var(--btn-color);
-  color: var(--btn-color);
+  border: 2px solid currentcolor;
+  color: var(--text-color);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus,
 button.secondary:hover,
 button.secondary:focus {
-  background-color: var(--btn-bg-hover);
-  color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.55);
+  background-color: var(--link-color);
+  color: var(--background-color);
 }
 
-/* ================================================================
+/* =============================================================
    GÖRSELLER
-   ================================================================ */
+   ============================================================= */
 main img {
   max-width: 100%;
   height: auto;
@@ -293,9 +261,9 @@ main img {
   width: 100%;
 }
 
-/* ================================================================
+/* =============================================================
    SEKSİYON YAPISI
-   ================================================================ */
+   ============================================================= */
 main > .section {
   margin: 40px 0;
 }
@@ -316,10 +284,10 @@ main > .section:first-of-type {
   }
 }
 
-/* varyantlar */
+/* section varyantları */
 main .section.light,
 main .section.highlight {
-  background: var(--light-color);
+  background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
 }
